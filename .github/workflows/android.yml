@@ -26,12 +26,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Bundle Capacitor runtime
+        run: cp node_modules/@capacitor/core/dist/capacitor.js www/
+
       - name: Add Android platform
         run: npx cap add android
 
       - name: Add microphone permission
         run: |
-          sed -i 's#<uses-permission android:name="android.permission.INTERNET" />#&\n    <uses-permission android:name="android.permission.RECORD_AUDIO" />\n    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />#' android/app/src/main/AndroidManifest.xml
+          sed -i 's#<uses-permission android:name="android.permission.INTERNET" />#&\n    <uses-permission android:name="android.permission.RECORD_AUDIO" />\n    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />\n    <uses-permission android:name="android.permission.VIBRATE" />#' android/app/src/main/AndroidManifest.xml
           grep -q RECORD_AUDIO android/app/src/main/AndroidManifest.xml
 
       - name: Sync web assets
