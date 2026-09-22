@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="capacitor.js"></script>
   <meta charset="utf-8">
-  <title>Bundled Page</title>
+  <title>Longtone</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #faf9f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
@@ -18,6 +17,64 @@
       This page requires JavaScript to display.
     </div>
   </noscript>
+<script>
+window.__LT_DEMO = true;
+(function () {
+  var CSS = [
+    "@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Figtree:wght@400;500;700&display=swap');",
+    "html,body{background:#efe2cc!important;}",
+    ".ltd-wrap{display:none;}",
+    "@media (min-width:860px){",
+    " html,body{height:100%;overflow:hidden;}",
+    " body{margin:0;}",
+    " .ltd-wrap{display:grid;grid-template-columns:minmax(0,420px) auto;gap:72px;align-items:center;justify-content:center;min-height:100vh;padding-block:32px;padding-inline:40px;box-sizing:border-box;font-family:Figtree,system-ui,sans-serif;color:#2b211a;}",
+    " .ltd-side{display:flex;flex-direction:column;gap:22px;}",
+    " .ltd-eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8a5a36;}",
+    " .ltd-side h1{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:52px;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.01em;}",
+    " .ltd-side p{font-size:16px;line-height:1.6;margin:0;color:#5a4a3c;max-width:38ch;}",
+    " .ltd-h{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:18px;margin:0 0 8px;}",
+    " .ltd-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.45;color:#4a3b2f;}",
+    " .ltd-list li{display:grid;grid-template-columns:18px 1fr;gap:8px;}",
+    " .ltd-list li::before{content:'';width:8px;height:8px;border-radius:50%;background:#c67139;margin-top:7px;}",
+    " .ltd-ask li::before{background:#6f7f55;}",
+    " .ltd-note{font-size:13px;color:#8a7766;border-top:1px solid #dcc9ad;padding-top:14px;max-width:44ch;}",
+    " .ltd-phone{position:relative;width:390px;height:min(844px,calc(100vh - 64px));border-radius:54px;background:#1f1a16;padding:12px;box-sizing:content-box;box-shadow:0 40px 80px -30px rgba(70,40,15,.45),0 0 0 2px #3a3029 inset;}",
+    " .ltd-screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;transform:translateZ(0);background:#f5ead8;}",
+    " .ltd-screen #dc-root{position:absolute!important;inset:0;width:100%!important;height:100%!important;overflow:auto;}",
+    " .ltd-notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#1f1a16;z-index:5;pointer-events:none;}",
+    "}"
+  ].join("\n");
+  var SIDE =
+    '<div class="ltd-side">' +
+    '<div class="ltd-eyebrow">Longtone &middot; preview</div>' +
+    '<h1>Practice tools for wind players.</h1>' +
+    '<p>A tuner, metronome, drone and long-tone coach in one app. Everything reads in your instrument&rsquo;s written pitch, so a trumpet player sees C when they play concert B&flat;.</p>' +
+    '<div><div class="ltd-h">Try it</div><ul class="ltd-list">' +
+    '<li>Pick your instrument, then open the tuner</li>' +
+    '<li>Start the metronome and try a Coach mode</li>' +
+    '<li>Run a long-tone routine and watch the rest screen</li>' +
+    '<li>Rearrange tools on the home screen</li></ul></div>' +
+    '<div><div class="ltd-h">What I&rsquo;d love to hear</div><ul class="ltd-list ltd-ask">' +
+    '<li>What would you actually use in practice?</li>' +
+    '<li>Anything confusing, or missing?</li>' +
+    '<li>Does the tuner screen feel easy to read at a glance?</li></ul></div>' +
+    '<div class="ltd-note">The real app listens through your microphone. In this preview the tuner needle is simulated, and your settings stay in this browser only.</div>' +
+    '</div>';
+  function mount() {
+    var root = document.getElementById('dc-root');
+    if (!root || !document.body) return false;
+    if (document.querySelector('.ltd-wrap')) return true;
+    var st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
+    if (!window.matchMedia('(min-width: 860px)').matches) return true;
+    var wrap = document.createElement('div'); wrap.className = 'ltd-wrap';
+    wrap.innerHTML = SIDE + '<div class="ltd-phone"><div class="ltd-screen"><div class="ltd-notch"></div></div></div>';
+    document.body.insertBefore(wrap, document.body.firstChild);
+    wrap.querySelector('.ltd-screen').appendChild(root);
+    return true;
+  }
+  var t = setInterval(function () { if (mount()) clearInterval(t); }, 100);
+})();
+</script>
 </head>
 <body>
   <div id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#c67139"></rect><circle cx="50" cy="50" r="22" fill="none" stroke="#f5ead8" stroke-width="7"></circle><path d="M50 50 L62 36" stroke="#f5ead8" stroke-width="7" stroke-linecap="round"></path></svg></div>
