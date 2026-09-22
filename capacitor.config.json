@@ -1,0 +1,8 @@
+{
+  "appId": "com.mattwren.longtone",
+  "appName": "Longtone",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#f5ead8"
+  }
+}
