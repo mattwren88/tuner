@@ -2,6 +2,10 @@
 
 Tuner, metronome and practice tools for wind players.
 
+**[▶ Try the live preview](https://mattwren88.github.io/tuner/demo/longtone-demo.html)**: the whole app running in your browser, no download needed. Feedback welcome.
+
+**[⬇ Download the Android APK](https://github.com/mattwren88/tuner/releases)**
+
 `www/index.html` is the whole app as a single file. It's wrapped for Android with [Capacitor](https://capacitorjs.com), and GitHub Actions builds an installable APK on every push to `main`.
 
 ## Getting it into GitHub
