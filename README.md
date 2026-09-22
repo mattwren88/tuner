@@ -44,7 +44,7 @@ Edit the design, re-export `www/index.html`, commit, push. A new build appears i
 
 ## Known limits of this build
 
-- **The tuner is simulated.** It doesn't listen to the mic yet. A real version needs pitch detection (`pitchy` or `pitchfinder`, both MIT) and the `RECORD_AUDIO` permission in the Android manifest.
+- **The tuner uses the microphone.** On first open, Android asks for mic permission — allow it.
 - **Timing uses a JS timer**, so the metronome and Changes can drift slightly. The fix is Web Audio lookahead scheduling.
 - It's a **debug build**, unsigned for the Play Store. Fine for your own phone; the Play Store needs a signed release build.
 - The app icon is Capacitor's default until you add one.
